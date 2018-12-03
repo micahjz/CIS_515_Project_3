@@ -1,5 +1,5 @@
 function reduced_row_matrix = gaussian(augmented_matrix)
-    [rows, cols] = size(augmented_matrix)
+    [rows, cols] = size(augmented_matrix);
     
     for i=1:1:rows
         [~, index] = max(augmented_matrix(i:rows, i));
@@ -14,5 +14,5 @@ function reduced_row_matrix = gaussian(augmented_matrix)
         end
     end
     
-    reduced_row_matrix = augmented_matrix
+    reduced_row_matrix = augmented_matrix;
 end
