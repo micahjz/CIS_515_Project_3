@@ -13,12 +13,17 @@ solutions = cell(2,4);
 
 % Solve each interpolation problem with different end conditions
 for i = 1:2
+    disp(strcat("Trial ", num2str(i)));
     x = data_pts{i}(:,1);
     y = data_pts{i}(:,2);
     
+    disp("x=")
+    disp(x)
+    disp("y=")
+    disp(y)
+    
     % General end conditions, with elimination
     disp("Computing de Boor points with elimination: general end conditions")
-    disp(strcat("Trial ", num2str(i)));
     tic
     dbp_x = end_condition_solve(x);
     dbp_y = end_condition_solve(y);
@@ -31,23 +36,24 @@ for i = 1:2
     
     % General end conditions, with LU
     disp("Computing de Boor points with LU: general end conditions")
-    disp(strcat("Trial ", num2str(i)));
     tic
     dbp_x = end_condition_solve_with_LU(x);
     dbp_y = end_condition_solve_with_LU(y);
     toc
     
     solutions{2,i} = [dbp_x, dbp_y];
+    disp("[Solutions_With_Elim, Solutions_With_LU]")
+    disp([solutions{1,i}, solutions{2,i}])
 end
 
 % Quadratic end conditions
 for i = 1:2
+    disp(strcat("Trial ", num2str(i)));
     x = data_pts{i}(:,1);
     y = data_pts{i}(:,2);
     
     % General end conditions, with elimination
     disp("Computing de Boor points with elimination: quadratic conditions")
-    disp(strcat("Trial ", num2str(i)));
     tic
     dbp_x = end_condition_solve(x);
     dbp_y = end_condition_solve(y);
@@ -60,12 +66,14 @@ for i = 1:2
     
     % General end conditions, with LU
     disp("Computing de Boor points with LU: quadratic conditions")
-    disp(strcat("Trial ", num2str(i)));
     tic
     dbp_x = end_condition_solve_with_LU(x);
     dbp_y = end_condition_solve_with_LU(y);
     toc
     
     solutions{2,i+2} = [dbp_x, dbp_y];
+    
+    disp("[Solutions_With_Elim, Solutions_With_LU]")
+    disp([solutions{1,i+2}, solutions{2,i+2}])
 end
 
