@@ -1,5 +1,5 @@
 function variable_vals = lower_triangular_backprop(augmented_matrix)
-    [rows, cols] = size(augmented_matrix)
+    [rows, cols] = size(augmented_matrix);
     
     variable_vals = zeros(rows, 1);
     
