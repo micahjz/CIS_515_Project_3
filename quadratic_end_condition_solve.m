@@ -1,7 +1,6 @@
 function de_boor_points = quadratic_end_condition_solve(x)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-    tic
     [rows, ~] = size(x);
     rows = rows-2;
     
@@ -29,6 +28,5 @@ function de_boor_points = quadratic_end_condition_solve(x)
     de_boor_points(rows+3, 1) = dbp(rows, 1) + (2.0/3.0)*x(rows+2, 1) - (2.0 / 3.0)*x(rows+1, 1);
     de_boor_points(1, 1) = x(1, 1);
     de_boor_points(rows+4, 1) = x(rows+2, 1);
-    toc
 end
 
