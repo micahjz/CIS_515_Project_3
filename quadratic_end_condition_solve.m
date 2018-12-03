@@ -22,7 +22,7 @@ function de_boor_points = quadratic_end_condition_solve(x)
     solutions(rows, 1) = solutions(rows, 1) - x(rows+2, 1);
     
     dbp = gaussian_backpropr(A, solutions);
-    de_boor_poins = zeros(rows+4, 1);
+    de_boor_points = zeros(rows+4, 1);
     de_boor_points(3:rows+2, 1) = dbp;
     de_boor_points(2, 1) = dbp(1, 1) + (2.0/3.0)*x(1, 1) - (2.0 / 3.0)*x(2, 1);
     de_boor_points(rows+3, 1) = dbp(rows, 1) + (2.0/3.0)*x(rows+2, 1) - (2.0 / 3.0)*x(rows+1, 1);
