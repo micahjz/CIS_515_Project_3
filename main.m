@@ -1,4 +1,4 @@
-%clear all; clc; close all;
+clear all; clc; close all;
 x = [0, 6, 14, 21, 25, 33, 38, 44];
 x = reshape(x, [8, 1]);
 y = [0, 20, 24, 16, 12, 13, 18, 5];
@@ -76,4 +76,37 @@ for i = 1:2
     disp("[Solutions_With_Elim, Solutions_With_LU]")
     disp([solutions{1,i+2}, solutions{2,i+2}])
 end
+
+% Now plot bezier curves
+for i = 1:4
+    
+    % this algorithm runs with default 3 control points
+    control_points = size(solutions{1,i},1);
+
+    % empty matrix for coordinates
+    coordinates = solutions{1,i};
+    %axis([0 100 0 100])
+    % ask for user input and plot points
+    %h
+    %for i=1:control_points
+    %    [x, y] = ginput(1);
+    %    coordinates(i,:) = [x, y];
+    %    plot(coordinates(:,1), coordinates(:,2), '+');
+    %end
+    %hold off
+    plot(coordinates(:,1), coordinates(:,2));
+
+    figure;
+    plotn = 1;
+    % for 1 through 6 subdivisions, plot the Bezier curves
+    for j=1:1:6
+        subplot(3,2,plotn)
+        plotn = plotn + 1;
+        plot(coordinates(:,1), coordinates(:,2), '+');
+        buildBezierCurve(coordinates, j);
+        title(strcat(num2str(j),' subdivisions'));
+    end
+end
+
+
 

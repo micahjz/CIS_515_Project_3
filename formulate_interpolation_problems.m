@@ -10,13 +10,13 @@ function data_points = formulate_interpolation_problems
     % we will arbitrarily choose these to be (x, y) to be incremented by 2 then
     % decremented by 1
     data_points = {zeros(n1, 2), zeros(n2, 2)};
-    data_points{1}(:,1) = [1;.5;.83;5;0];
-    data_points{1}(:,2) = [.5;10;0;2;2];
+    data_points{1}(:,1) = [0;1;2;3;4];
+    data_points{1}(:,2) = [0;1;1;1;0];
 
     % we will arbitrarily choose our other one to be decremented by 1 then
     % incremented by 3
-    data_points{2}(:,1) = [8; 6; 2; 5; 7; .8; 10; 2];
-    data_points{2}(:,2) = [1; 3; 0; 4; 2; 10; 1; 2];
+    data_points{2}(:,1) = [0; 1.5; 3; 3.5; 4; 5.5; 7; 8.5];
+    data_points{2}(:,2) = [0; 1;   3; 3.5; 3;   1; 0; 2];
     
 
 end
